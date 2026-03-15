@@ -74,8 +74,8 @@
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             </div>
             <div class="job-actions flex justify-start gap-5 mt-5">
-                <button class="btn btn-success btn-neutral btn-outline interview-button">Interview</button>
-                <button class="btn btn-error btn-outline btn-neutral rejected-button">Rejected</button>
+                <button class="btn btn-success btn-neutral btn-outline interview-button" onclick="createJobCard('interview-section')">Interview</button>
+                <button class="btn btn-error btn-outline btn-neutral rejected-button" onclick="createJobCard('rejected-section')">Rejected</button>
             </div>
         </div>
         <div class="job-card w-full  rounded-xl shadow-sm p-5 mb-5">
@@ -241,10 +241,14 @@
     </div>
     <!-- interview -->
     <div id='interview-jobs' class="mt-10 hidden">
+<div id="interview-section">
 
+</div>
     </div>
     <div id='rejected-jobs' class="mt-10 hidden">
+<div id="rejected-section">
 
+</div>
     </div>
     <script src="functions.js"></script>
 </body>
