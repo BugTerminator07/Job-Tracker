@@ -12,7 +12,7 @@ function showOnly(id){
     const element=document.getElementById(id);
     element.classList.remove('hidden');
 }
-// function disableOnClick(buttonId) {
+// function disableClick(buttonId) {
 //   const btn = document.getElementById(buttonId);
 //   btn.disabled=true;
 // //   btn.addEventListener("click", function() {
@@ -25,7 +25,16 @@ function disableOnClick(clickedId, otherId) {
     clickedBtn.disabled = true;
     otherBtn.style.pointerEvents = "none";
   };
-
+function changeBtn(id){
+    const btn=document.getElementById(id);
+    btn.innerHTML=`
+    <button class="btn ml-10">
+  <span class="loading loading-spinner"></span>
+  Please Cheak options
+</button
+    `
+    btn.disabled=true;
+}
 
 function createJobCard(id){
     // get where to add the card
