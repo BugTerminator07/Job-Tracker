@@ -12,6 +12,19 @@ function showOnly(id){
     const element=document.getElementById(id);
     element.classList.remove('hidden');
 }
+// function disableOnClick(buttonId) {
+//   const btn = document.getElementById(buttonId);
+//   btn.disabled=true;
+// //   btn.addEventListener("click", function() {
+// //     btn.disabled = true;
+// //   });
+// }
+function disableOnClick(clickedId, otherId) {
+  const clickedBtn = document.getElementById(clickedId);
+  const otherBtn = document.getElementById(otherId);
+    clickedBtn.disabled = true;
+    otherBtn.style.pointerEvents = "none";
+  };
 
 
 function createJobCard(id){
@@ -71,3 +84,23 @@ function createJobCard(id){
         history.appendChild(newHistory);
 
 }
+function interviewButton(){
+    const interviewButtons=document.getElementById('interview-number');
+    const value=Number(interviewButtons.innerText);
+    interviewButtons.innerText=value+1;
+}
+function rejectedButton(){
+    const rejectedButtons=document.getElementById('rejected-number');
+    const value=Number(rejectedButtons.innerText);
+    rejectedButtons.innerText=value+1;
+    const jobItem=document.getElementById('job-item');
+    jobItem.innerHTML=`${value+1} Jobs`;
+}
+function allJobsButton(){
+    const value=document.getElementById('job-item');
+    value.innerHTML=`9 Jobs`;
+}
+// function otherDisabled(id){
+//     const id=getElementById(id);
+//     id.disabled=true;
+// }

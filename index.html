@@ -29,15 +29,15 @@
    <div class="title-card-container grid grid-cols-3 ">
     <div class="card w-[360px] h-[97px] gap-5 mt-5 rounded-xl shadow-sm p-5">
         <p class="font-bold">Total</p>
-        <P class="font-bold font-xl total-number">8</P>
+        <P class="font-bold font-xl" id="total-number">9</P>
     </div>
     <div class="card w-[360px] h-[97px] gap-5 mt-5 rounded-xl shadow-sm p-5">
         <p class="font-bold">Interviews</p>
-        <P class="text-[green] font-bold font-xl interview-number">0</P>
+        <P class="text-[green] font-bold font-xl " id="interview-number">0</P>
     </div>
     <div class="card w-[360px] h-[97px] gap-5 mt-5 rounded-xl shadow-sm p-5">
         <p class="font-bold">Rejected</p>
-        <P class="text-[red] font-bold font-xl rejected-number">0</P>
+        <P class="text-[red] font-bold font-xl" id="rejected-number">0</P>
     </div>
    </div>
    <!-- all job section ,will have cards of jobs ,the cards will have a title of the job ,then the company 
@@ -47,12 +47,12 @@
    <!-- three buttons all,interview,rejected -->
     <div class="flex justify-between">
     <div class="buttons flex justify-start gap-5">
-        <button id="all-button" class="btn btn-outline btn-sm  text-[gray] " onclick="showOnly('all-jobs')">All</button>
-        <button id="interview-button" class="btn  btn-outline btn-sm  text-[gray]" onclick="showOnly('interview-jobs')">Interview</button>
-        <button id="rejected-button" class="btn  btn-outline btn-sm  text-[gray]" onclick="showOnly('rejected-jobs')">Rejected</button>
+        <button id="all-button" class="btn btn-outline btn-sm  text-[gray] " onclick="showOnly('all-jobs'); allJobsButton(); ">All</button>
+        <button id="interview-buttons" class="btn  btn-outline btn-sm  text-[gray]" onclick="showOnly('interview-jobs'); ">Interview</button>
+        <button id="rejected-buttons" class="btn  btn-outline btn-sm  text-[gray]" onclick="showOnly('rejected-jobs'); ">Rejected</button>
     </div>
     <div>
-    <p class="text-[gray] ">9 Jobs</p>
+    <p class="text-[gray] " id="job-item">9 Jobs</p>
     </div>
     </div>
      <!-- cards -->
@@ -74,8 +74,8 @@
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             </div>
             <div class="job-actions flex justify-start gap-5 mt-5">
-                <button class="btn btn-success btn-neutral btn-outline interview-button" onclick="createJobCard('interview-section')">Interview</button>
-                <button class="btn btn-error btn-outline btn-neutral rejected-button" onclick="createJobCard('rejected-section')">Rejected</button>
+                <button id="interview-button" class="btn btn-success btn-neutral btn-outline" onclick="createJobCard('interview-section'); interviewButton();disableOnClick('interview-button','rejected-button')">Interview</button>
+                <button id="rejected-button" class="btn btn-error btn-outline btn-neutral " onclick="createJobCard('rejected-section'); rejectedButton();disableOnClick('rejected-button','interview-button')">Rejected</button>
             </div>
         </div>
         <div class="job-card w-full  rounded-xl shadow-sm p-5 mb-5">
@@ -94,8 +94,8 @@
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             </div>
             <div class="job-actions flex justify-start gap-5 mt-5">
-                <button class="btn btn-success btn-neutral btn-outline interview-button">Interview</button>
-                <button class="btn btn-error btn-outline btn-neutral rejected-button">Rejected</button>
+                <button id="interview-button1" class="btn btn-success btn-neutral btn-outline" onclick="createJobCard('interview-section'); interviewButton();disableOnClick('interview-button1','rejected-button1')">Interview</button>
+                <button id="rejected-button1" class="btn btn-error btn-outline btn-neutral " onclick="createJobCard('rejected-section'); rejectedButton();disableOnClick('rejected-button1','interview-button1')">Rejected</button>
             </div>
         </div>
         <div class="job-card w-full rounded-xl shadow-sm p-5 mb-5">
@@ -113,9 +113,9 @@
             <div class="job-description mt-5">
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             </div>
-            <div class="job-actions flex mt-5">
-                <button class="btn btn-success btn-neutral btn-outline interview-button">Interview</button>
-                <button class="btn btn-error btn-outline btn-neutral rejected-button">Rejected</button>
+            <div class="job-actions flex justify-start gap-5 mt-5">
+                <button id="interview-button2" class="btn btn-success btn-neutral btn-outline" onclick="createJobCard('interview-section'); interviewButton();disableOnClick('interview-button2','rejected-button2')">Interview</button>
+                <button id="rejected-button2" class="btn btn-error btn-outline btn-neutral " onclick="createJobCard('rejected-section'); rejectedButton();disableOnClick('rejected-button2','interview-button2')">Rejected</button>
             </div>
         </div>
         <div class="job-card w-full  rounded-xl shadow-sm p-5 mb-5">
@@ -133,9 +133,49 @@
             <div class="job-description mt-5">
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             </div>
-            <div class="job-actions flex justify-start gap-5 mt-5">
-                <button class="btn btn-success btn-neutral btn-outline interview-button">Interview</button>
-                <button class="btn btn-error btn-outline btn-neutral rejected-button">Rejected</button>
+             <div class="job-actions flex justify-start gap-5 mt-5">
+                <button id="interview-button3" class="btn btn-success btn-neutral btn-outline" onclick="createJobCard('interview-section'); interviewButton();disableOnClick('interview-button3','rejected-button3')">Interview</button>
+                <button id="rejected-button3" class="btn btn-error btn-outline btn-neutral " onclick="createJobCard('rejected-section'); rejectedButton();disableOnClick('rejected-button3','interview-button3')">Rejected</button>
+            </div>
+        </div>
+        <div class="job-card w-full  rounded-xl shadow-sm p-5 mb-5">
+            <div class="job-title flex flex-col">
+                <h2 class="font-bold text-xl">Software Engineer</h2>
+                <p class="text-gray-500">Google</p>
+                <button class="btn btn-disabled w-[150px] items-center rponded py-5 mt-5 ">Not Applied</button>
+            </div>
+            <div class="job-details flex justify-between items-center mt-5">
+               
+                <p class="text-gray-500">Remote</p>
+                <p class="text-gray-500">Salary: $100,000</p>
+                <p class="text-gray-500">Time: Full-time</p>
+            </div>
+            <div class="job-description mt-5">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+             <div class="job-actions flex justify-start gap-5 mt-5">
+                <button id="interview-button4" class="btn btn-success btn-neutral btn-outline" onclick="createJobCard('interview-section'); interviewButton();disableOnClick('interview-button4','rejected-button4')">Interview</button>
+                <button id="rejected-button4" class="btn btn-error btn-outline btn-neutral " onclick="createJobCard('rejected-section'); rejectedButton();disableOnClick('rejected-button4','interview-button4')">Rejected</button>
+            </div>
+        </div>
+        <div class="job-card w-full  rounded-xl shadow-sm p-5 mb-5">
+            <div class="job-title flex flex-col">
+                <h2 class="font-bold text-xl">Software Engineer</h2>
+                <p class="text-gray-500">Google</p>
+                <button class="btn btn-disabled w-[150px] items-center rponded py-5 mt-5 ">Not Applied</button>
+            </div>
+            <div class="job-details flex justify-between items-center mt-5">
+               
+                <p class="text-gray-500">Remote</p>
+                <p class="text-gray-500">Salary: $100,000</p>
+                <p class="text-gray-500">Time: Full-time</p>
+            </div>
+            <div class="job-description mt-5">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+             <div class="job-actions flex justify-start gap-5 mt-5">
+                <button id="interview-button5" class="btn btn-success btn-neutral btn-outline" onclick="createJobCard('interview-section'); interviewButton();disableOnClick('interview-button5','rejected-button5')">Interview</button>
+                <button id="rejected-button5" class="btn btn-error btn-outline btn-neutral " onclick="createJobCard('rejected-section'); rejectedButton();disableOnClick('rejected-button5','interview-button5')">Rejected</button>
             </div>
         </div>
         <div class="job-card w-full  rounded-xl shadow-sm p-5 mb-5">
@@ -154,8 +194,8 @@
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             </div>
             <div class="job-actions flex justify-start gap-5 mt-5">
-                <button class="btn btn-success btn-neutral btn-outline interview-button">Interview</button>
-                <button class="btn btn-error btn-outline btn-neutral rejected-button">Rejected</button>
+                <button id="interview-button6" class="btn btn-success btn-neutral btn-outline" onclick="createJobCard('interview-section'); interviewButton();disableOnClick('interview-button6','rejected-button6')">Interview</button>
+                <button id="rejected-button6" class="btn btn-error btn-outline btn-neutral " onclick="createJobCard('rejected-section'); rejectedButton();disableOnClick('rejected-button6','interview-button6')">Rejected</button>
             </div>
         </div>
         <div class="job-card w-full  rounded-xl shadow-sm p-5 mb-5">
@@ -174,8 +214,8 @@
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             </div>
             <div class="job-actions flex justify-start gap-5 mt-5">
-                <button class="btn btn-success btn-neutral btn-outline interview-button">Interview</button>
-                <button class="btn btn-error btn-outline btn-neutral rejected-button">Rejected</button>
+                <button id="interview-button7" class="btn btn-success btn-neutral btn-outline" onclick="createJobCard('interview-section'); interviewButton();disableOnClick('interview-button7','rejected-button7')">Interview</button>
+                <button id="rejected-button7" class="btn btn-error btn-outline btn-neutral " onclick="createJobCard('rejected-section'); rejectedButton();disableOnClick('rejected-button7','interview-button7')">Rejected</button>
             </div>
         </div>
         <div class="job-card w-full  rounded-xl shadow-sm p-5 mb-5">
@@ -194,48 +234,8 @@
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             </div>
             <div class="job-actions flex justify-start gap-5 mt-5">
-                <button class="btn btn-success btn-neutral btn-outline interview-button">Interview</button>
-                <button class="btn btn-error btn-outline btn-neutral rejected-button">Rejected</button>
-            </div>
-        </div>
-        <div class="job-card w-full  rounded-xl shadow-sm p-5 mb-5">
-            <div class="job-title flex flex-col">
-                <h2 class="font-bold text-xl">Software Engineer</h2>
-                <p class="text-gray-500">Google</p>
-                <button class="btn btn-disabled w-[150px] items-center rponded py-5 mt-5 ">Not Applied</button>
-            </div>
-            <div class="job-details flex justify-between items-center mt-5">
-               
-                <p class="text-gray-500">Remote</p>
-                <p class="text-gray-500">Salary: $100,000</p>
-                <p class="text-gray-500">Time: Full-time</p>
-            </div>
-            <div class="job-description mt-5">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            </div>
-            <div class="job-actions flex justify-start gap-5 mt-5">
-                <button class="btn btn-success btn-neutral btn-outline interview-button">Interview</button>
-                <button class="btn btn-error btn-outline btn-neutral rejected-button">Rejected</button>
-            </div>
-        </div>
-        <div class="job-card w-full  rounded-xl shadow-sm p-5 mb-5">
-            <div class="job-title flex flex-col">
-                <h2 class="font-bold text-xl">Software Engineer</h2>
-                <p class="text-gray-500">Google</p>
-                <button class="btn btn-disabled w-[150px] items-center rponded py-5 mt-5 ">Not Applied</button>
-            </div>
-            <div class="job-details flex justify-between items-center mt-5">
-               
-                <p class="text-gray-500">Remote</p>
-                <p class="text-gray-500">Salary: $100,000</p>
-                <p class="text-gray-500">Time: Full-time</p>
-            </div>
-            <div class="job-description mt-5">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            </div>
-            <div class="job-actions flex justify-start gap-5 mt-5">
-                <button class="btn btn-success btn-neutral btn-outline interview-button">Interview</button>
-                <button class="btn btn-error btn-outline btn-neutral rejected-button">Rejected</button>
+                <button id="interview-button8" class="btn btn-success btn-neutral btn-outline" onclick="createJobCard('interview-section'); interviewButton();disableOnClick('interview-button8','rejected-button8')">Interview</button>
+                <button id="rejected-button8" class="btn btn-error btn-outline btn-neutral " onclick="createJobCard('rejected-section'); rejectedButton();disableOnClick('rejected-button8','interview-button8')">Rejected</button>
             </div>
         </div>
     </div>
