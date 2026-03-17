@@ -97,17 +97,29 @@ function interviewButton(){
     const interviewButtons=document.getElementById('interview-number');
     const value=Number(interviewButtons.innerText);
     interviewButtons.innerText=value+1;
+  
 }
 function rejectedButton(){
     const rejectedButtons=document.getElementById('rejected-number');
     const value=Number(rejectedButtons.innerText);
     rejectedButtons.innerText=value+1;
-    const jobItem=document.getElementById('job-item');
-    jobItem.innerHTML=`${value+1} Jobs`;
+    
 }
 function allJobsButton(){
     const value=document.getElementById('job-item');
     value.innerHTML=`9 Jobs`;
+}
+function interviewJobsButton(){
+    const interviewButtons=document.getElementById('interview-number');
+    const value=Number(interviewButtons.innerText);
+    const jobs=document.getElementById('job-item');
+    jobs.innerHTML=`${value} Jobs`;
+}
+function rejectedJobsButton(){
+    const rejectedButtons=document.getElementById('rejected-number');
+    const value=Number(rejectedButtons.innerText);
+    const jobs=document.getElementById('job-item');
+    jobs.innerHTML=`${value} Jobs`;
 }
 // function otherDisabled(id){
 //     const id=getElementById(id);

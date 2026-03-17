@@ -26,7 +26,7 @@
 <body class="min-h-screen max-w-[1140px] mx-auto my-15">
     <!-- title -->
    <h1 class="text-3xl font-bold">Job Application Tracker</h1>
-   <div class="title-card-container grid grid-cols-3 ">
+   <div class="title-card-container grid  sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-5">
     <div class="card w-[360px] h-[97px] gap-5 mt-5 rounded-xl shadow-sm p-5">
         <p class="font-bold">Total</p>
         <P class="font-bold font-xl" id="total-number">9</P>
@@ -48,8 +48,8 @@
     <div class="flex justify-between">
     <div class="buttons flex justify-start gap-5">
         <button id="all-button" class="btn btn-outline btn-sm  text-[gray] " onclick="showOnly('all-jobs'); allJobsButton(); ">All</button>
-        <button id="interview-buttons" class="btn  btn-outline btn-sm  text-[gray]" onclick="showOnly('interview-jobs'); ">Interview</button>
-        <button id="rejected-buttons" class="btn  btn-outline btn-sm  text-[gray]" onclick="showOnly('rejected-jobs'); ">Rejected</button>
+        <button id="interview-buttons" class="btn  btn-outline btn-sm  text-[gray]" onclick="showOnly('interview-jobs'); interviewJobsButton(); ">Interview</button>
+        <button id="rejected-buttons" class="btn  btn-outline btn-sm  text-[gray]" onclick="showOnly('rejected-jobs'); rejectedJobsButton(); ">Rejected</button>
     </div>
     <div>
     <p class="text-[gray] " id="job-item">9 Jobs</p>
